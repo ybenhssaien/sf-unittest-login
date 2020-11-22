@@ -1,0 +1,6 @@
+services:
+  App\Security\TokenStorageDecorator:
+    decorates: 'security.token_storage'
+  App\Manager\PostManager:
+    arguments: ['@doctrine.orm.default_entity_manager', '@security.helper']
+    public: true
