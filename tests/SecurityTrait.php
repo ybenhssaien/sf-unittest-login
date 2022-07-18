@@ -5,11 +5,13 @@ namespace App\Tests;
 use App\Entity\User;
 use App\Security\TokenStorageDecorator;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 trait SecurityTrait
 {
     protected static array $users = [];
-
+    protected static ContainerInterface $container;
+    
     protected function login(string $role = 'ROLE_USER', bool $userFromDatabase = false): User
     {
         $user = $this->getUser($role, $userFromDatabase);
